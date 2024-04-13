@@ -45,10 +45,12 @@ def run_game(game_class=Game2048, title='2048: In Python!', data_dir=None):
                     print("End of Game! Score: ", game_attributes[2])
                     event = pygame.event.wait()
                     manager.end_game(event)
+                    f = open("score.txt", "w")
+                    f.write(game_attributes[2])
                 directions = ['left', 'right', 'up', 'down']
                 idx = random.randint(0,3)
                 pyautogui.press(directions[idx])
-                print(event)
+                #print(event)
                 pyautogui.PAUSE
                 pyautogui.DARWIN_CATCH_UP_TIME
                 manager.dispatch(event)
